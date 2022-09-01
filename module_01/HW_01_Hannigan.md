@@ -5,7 +5,7 @@ jupytext:
     extension: .md
     format_name: myst
     format_version: 0.13
-    jupytext_version: 1.10.3
+    jupytext_version: 1.11.4
 kernelspec:
   display_name: Python 3 (ipykernel)
   language: python
@@ -91,7 +91,27 @@ elif time < 12:
     b. Use your function to plot sin(x) and cos(x) for x=$0..2\pi$
 
 ```{code-cell} ipython3
+import numpy as np
+import matplotlib.pyplot as plt
+plt.style.use('fivethirtyeight')
 
+# sincos() fn definition
+def sincos(x):
+    '''This fn returns the sin and cos fns of the input x'''
+    sinx = np.sin(x)
+    cosx = np.cos(x)
+    return sinx, cosx
+
+# Typing a fn name with a question mark displays info about the fn with docstring text in help window
+sincos?
+
+# create x array and run sincos() fn
+x = np.linspace(0, 2*np.pi)
+y1, y2 = sincos(x)
+
+# plot fns.
+plt.plot(x, y1)
+plt.plot(x, y2)
 ```
 
 2. Use a for-loop to create a variable called `A_99`, where every element is the product
